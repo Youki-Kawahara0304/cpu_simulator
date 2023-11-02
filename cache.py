@@ -8,6 +8,13 @@ class Cache:
     def refresh_cache(self):
         self.entries = [{} for i in range(cache_size)]
 
+    def search_value(self, address):
+        for entry in self.entries:
+            print(entry)
+            if address in entry:
+                return entry[address]
+        return None
+
     def write_cache(self, address, value):
         for entry in self.entries:
             if entry == {}:
@@ -18,16 +25,9 @@ class Cache:
         if self.place_to_replace == 16:
             self.place_to_replace = 0
     
-    def search_value(self, address):
-        for entry in self.entries:
-            print(entry)
-            if address in entry:
-                return entry[address]
-        return None
+    
 
-
-
-test = Cache()
-for i in range(0, 33):
-    test.write_cache(i, "test")    
-print(test.search_value(33))
+# test = Cache()
+# for i in range(0, 33):
+#     test.write_cache(i, "test")    
+# print(test.search_value(33))

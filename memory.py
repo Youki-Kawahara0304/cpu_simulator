@@ -9,11 +9,12 @@ class Memory:
         for i in range(memory_size):
             self.memory_bus[i] = 0
 
+    def search_value(self, address):
+        if self.memory_bus.get(address) is not None:
+            return self.memory_bus.get(address)
+        return None
+
     def write_memory(self, address, value):
         if self.memory_bus.get(address) is not None:
             self.memory_bus[address] = value
                 
-    def search_memory(self, address):
-        if self.memory_bus.get(address) is not None:
-            return self.memory_bus.get(address)
-        return None
